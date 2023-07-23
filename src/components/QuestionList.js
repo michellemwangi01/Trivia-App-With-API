@@ -10,8 +10,8 @@ function QuestionList({questions, setQuestions}) {
     key={question.id} question={question}>
   </QuestionItem>)
   
-  function deleteQuestion(id) {
-    fetch(`http://localhost:4000/questions/${id}`,{
+ async function deleteQuestion(id) {
+    await fetch(`http://localhost:4000/questions/${id}`,{
       method: "DELETE"
     })
 
@@ -19,10 +19,10 @@ function QuestionList({questions, setQuestions}) {
     setQuestions(questionList) 
   }
 
-  function answerSelect(id, newAnswer){
+  async function answerSelect(id, newAnswer){
     console.log(id, newAnswer);
     let integer = newAnswer
-    fetch(`http://localhost:4000/questions/${id}`,{
+   await fetch(`http://localhost:4000/questions/${id}`,{
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body:JSON.stringify({

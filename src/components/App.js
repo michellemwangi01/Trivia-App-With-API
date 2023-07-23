@@ -15,7 +15,7 @@ function App() {
        
   },[])
 
-  function addNewQuestion(questionObj) {
+   function addNewQuestion(questionObj) {
     let answers = [questionObj.answer1,questionObj.answer2,questionObj.answer3,questionObj.answer4 ]
     fetch('http://localhost:4000/questions',{
       method: "POST",
